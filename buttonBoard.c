@@ -87,6 +87,7 @@ int main(void)
         }
     }
 
+    
     // for ports that are active (not shorted) on B, light corresponding LEDs on D
     for (i=0; i<sizeof(pns); i++) {
         if (pnsActive[i] == 0) {
@@ -96,6 +97,7 @@ int main(void)
         }
     }
     
+    
 
 	while (1) {
 		// read all port B pins
@@ -103,8 +105,13 @@ int main(void)
 		// if the pins were not shorted on boot, check if any pins are low, but were high previously
 		for (i=0; i<sizeof(pns); i++) {
 			if (pnsActive[i] && (((b & pns[i]) == 0) && (b_prev & pns[i]) != 0)) {
-				usb_keyboard_press(buttons[i], 0);
-			}
+//				usb_keyboard_press(buttons[i], 0);
+                keyboard_modifier_keys = 0;
+                keyboard_keys[0] = buttons[i];
+                usb_keyboard_send();
+                _delay_ms(10);
+                keyboard_keys[0] = 0;
+                usb_keyboard_send();			}
 		}
 
 		// now the current pins will be the previous, and

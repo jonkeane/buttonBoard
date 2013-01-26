@@ -1988,35 +1988,35 @@
  1338               		.file 3 "usb_keyboard.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 usb_keyboard.c
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:2      *ABS*:0000003f __SREG__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:3      *ABS*:0000003e __SP_H__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:4      *ABS*:0000003d __SP_L__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:5      *ABS*:00000034 __CCP__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:6      *ABS*:00000000 __tmp_reg__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:7      *ABS*:00000001 __zero_reg__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:15     .text.usb_wait_in_ready:00000000 usb_wait_in_ready
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:38     .text.usb_init:00000000 usb_init
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:2      *ABS*:0000003f __SREG__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:3      *ABS*:0000003e __SP_H__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:4      *ABS*:0000003d __SP_L__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:5      *ABS*:00000034 __CCP__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:15     .text.usb_wait_in_ready:00000000 usb_wait_in_ready
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:38     .text.usb_init:00000000 usb_init
                              .bss:00000008 usb_configuration
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:85     .text.usb_configured:00000000 usb_configured
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:104    .text.usb_keyboard_send:00000000 usb_keyboard_send
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1119   .bss:00000007 keyboard_modifier_keys
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1113   .bss:00000001 keyboard_keys
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1121   .bss:00000009 keyboard_idle_count
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:210    .text.usb_keyboard_press:00000000 usb_keyboard_press
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:245    .text.__vector_10:00000000 __vector_10
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1126   .data:00000000 keyboard_idle_config
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1122   .bss:0000000a div4.1496
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:388    .text.__vector_11:00000000 __vector_11
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1132   .progmem.data:00000000 descriptor_list
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1163   .progmem.data:00000031 endpoint_config_table
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1173   .data:00000001 keyboard_protocol
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1107   .bss:00000000 keyboard_leds
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1178   .progmem.data:00000037 device_descriptor
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1199   .progmem.data:00000049 config1_descriptor
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1236   .progmem.data:0000006b keyboard_hid_report_desc
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1302   .progmem.data:000000aa string0
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1308   .progmem.data:000000ae string1
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//cc9e24mg.s:1322   .progmem.data:000000c0 string2
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:85     .text.usb_configured:00000000 usb_configured
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:104    .text.usb_keyboard_send:00000000 usb_keyboard_send
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1119   .bss:00000007 keyboard_modifier_keys
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1113   .bss:00000001 keyboard_keys
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1121   .bss:00000009 keyboard_idle_count
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:210    .text.usb_keyboard_press:00000000 usb_keyboard_press
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:245    .text.__vector_10:00000000 __vector_10
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1126   .data:00000000 keyboard_idle_config
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1122   .bss:0000000a div4.1496
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:388    .text.__vector_11:00000000 __vector_11
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1132   .progmem.data:00000000 descriptor_list
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1163   .progmem.data:00000031 endpoint_config_table
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1173   .data:00000001 keyboard_protocol
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1107   .bss:00000000 keyboard_leds
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1178   .progmem.data:00000037 device_descriptor
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1199   .progmem.data:00000049 config1_descriptor
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1236   .progmem.data:0000006b keyboard_hid_report_desc
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1302   .progmem.data:000000aa string0
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1308   .progmem.data:000000ae string1
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccqfKrpN.s:1322   .progmem.data:000000c0 string2
 
 UNDEFINED SYMBOLS
 __do_copy_data

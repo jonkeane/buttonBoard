@@ -114,8 +114,8 @@
   44 001c 8823      		tst r24
   45 001e 01F0      		breq .L2
   46               	.LVL1:
-  47               	.LBB6:
-  48               	.LBB7:
+  47               	.LBB8:
+  48               	.LBB9:
   49               		.file 2 "/usr/local/CrossPack-AVR-20121207/lib/gcc/avr/4.6.2/../../../../avr/include/util/delay.h"
    1:/usr/local/CrossPack-AVR-20121207/lib/gcc/avr/4.6.2/../../../../avr/include/util/delay.h **** /* Copyright (c) 2002, Marek Michalkiewicz
    2:/usr/local/CrossPack-AVR-20121207/lib/gcc/avr/4.6.2/../../../../avr/include/util/delay.h ****    Copyright (c) 2004,2005,2007 Joerg Wunsch
@@ -291,8 +291,8 @@
   57 002c 01F4      	    brne 1b
   58 002e 00C0      		rjmp .
   59 0030 0000      		nop
-  60               	.LBE7:
-  61               	.LBE6:
+  60               	.LBE9:
+  61               	.LBE8:
   72:buttonBoard.c **** 
   73:buttonBoard.c **** 	// Wait an extra second for the PC's operating system to load drivers
   74:buttonBoard.c **** 	// and do whatever it does to actually be ready for input
@@ -352,25 +352,26 @@
   87:buttonBoard.c ****         }
   88:buttonBoard.c ****     }
   89:buttonBoard.c **** 
-  90:buttonBoard.c ****     // for ports that are active (not shorted) on B, light corresponding LEDs on D
-  91:buttonBoard.c ****     for (i=0; i<sizeof(pns); i++) {
-  92:buttonBoard.c ****         if (pnsActive[i] == 0) {
- 100               		.loc 1 92 0
+  90:buttonBoard.c ****     
+  91:buttonBoard.c ****     // for ports that are active (not shorted) on B, light corresponding LEDs on D
+  92:buttonBoard.c ****     for (i=0; i<sizeof(pns); i++) {
+  93:buttonBoard.c ****         if (pnsActive[i] == 0) {
+ 100               		.loc 1 93 0
  101 0066 8D91      		ld r24,X+
  102 0068 9D91      		ld r25,X+
  103 006a 0097      		sbiw r24,0
  104 006c 01F4      		brne .L6
-  93:buttonBoard.c ****             PORTD &= ~(pns[i]);
- 105               		.loc 1 93 0
+  94:buttonBoard.c ****             PORTD &= ~(pns[i]);
+ 105               		.loc 1 94 0
  106 006e 9BB1      		in r25,43-32
  107 0070 8081      		ld r24,Z
  108 0072 8095      		com r24
  109 0074 8923      		and r24,r25
  110 0076 00C0      		rjmp .L16
  111               	.L6:
-  94:buttonBoard.c ****         } else {
-  95:buttonBoard.c ****             PORTD |= (pns[i]);
- 112               		.loc 1 95 0
+  95:buttonBoard.c ****         } else {
+  96:buttonBoard.c ****             PORTD |= (pns[i]);
+ 112               		.loc 1 96 0
  113 0078 8BB1      		in r24,43-32
  114 007a 9081      		ld r25,Z
  115 007c 892B      		or r24,r25
@@ -378,21 +379,22 @@
  117 007e 8BB9      		out 43-32,r24
  118 0080 2150      		subi r18,lo8(-(-1))
  119 0082 3196      		adiw r30,1
-  91:buttonBoard.c ****     for (i=0; i<sizeof(pns); i++) {
- 120               		.loc 1 91 0
+  92:buttonBoard.c ****     for (i=0; i<sizeof(pns); i++) {
+ 120               		.loc 1 92 0
  121 0084 2223      		tst r18
  122 0086 01F4      		brne .L8
  123 0088 1FEF      		ldi r17,lo8(-1)
  124               	.LVL4:
  125               	.L11:
-  96:buttonBoard.c ****         }
-  97:buttonBoard.c ****     }
-  98:buttonBoard.c ****     
-  99:buttonBoard.c **** 
- 100:buttonBoard.c **** 	while (1) {
- 101:buttonBoard.c **** 		// read all port B pins
- 102:buttonBoard.c **** 		b = PINB;
- 126               		.loc 1 102 0
+  97:buttonBoard.c ****         }
+  98:buttonBoard.c ****     }
+  99:buttonBoard.c ****     
+ 100:buttonBoard.c ****     
+ 101:buttonBoard.c **** 
+ 102:buttonBoard.c **** 	while (1) {
+ 103:buttonBoard.c **** 		// read all port B pins
+ 104:buttonBoard.c **** 		b = PINB;
+ 126               		.loc 1 104 0
  127 008a 03B1      		in r16,35-32
  128               	.LVL5:
  129 008c 80E0      		ldi r24,lo8(pnsActive)
@@ -403,10 +405,10 @@
  134 0096 D0E0      		ldi r29,hi8(0)
  135               	.LVL6:
  136               	.L10:
- 103:buttonBoard.c **** 		// if the pins were not shorted on boot, check if any pins are low, but were high previously
- 104:buttonBoard.c **** 		for (i=0; i<sizeof(pns); i++) {
- 105:buttonBoard.c **** 			if (pnsActive[i] && (((b & pns[i]) == 0) && (b_prev & pns[i]) != 0)) {
- 137               		.loc 1 105 0
+ 105:buttonBoard.c **** 		// if the pins were not shorted on boot, check if any pins are low, but were high previously
+ 106:buttonBoard.c **** 		for (i=0; i<sizeof(pns); i++) {
+ 107:buttonBoard.c **** 			if (pnsActive[i] && (((b & pns[i]) == 0) && (b_prev & pns[i]) != 0)) {
+ 137               		.loc 1 107 0
  138 0098 D701      		movw r26,r14
  139 009a 8D91      		ld r24,X+
  140 009c 9D91      		ld r25,X+
@@ -418,86 +420,115 @@
  145 00a4 FE01      		movw r30,r28
  146 00a6 E050      		subi r30,lo8(-(pns))
  147 00a8 F040      		sbci r31,hi8(-(pns))
- 148               		.loc 1 105 0 discriminator 1
+ 148               		.loc 1 107 0 discriminator 1
  149 00aa 8081      		ld r24,Z
  150 00ac 982F      		mov r25,r24
  151 00ae 9023      		and r25,r16
  152 00b0 01F4      		brne .L9
  153 00b2 8123      		and r24,r17
  154 00b4 01F0      		breq .L9
+ 108:buttonBoard.c **** //				usb_keyboard_press(buttons[i], 0);
+ 109:buttonBoard.c ****                 keyboard_modifier_keys = 0;
+ 155               		.loc 1 109 0
+ 156 00b6 1092 0000 		sts keyboard_modifier_keys,__zero_reg__
   51:buttonBoard.c **** int main(void)
- 155               		.loc 1 51 0
- 156 00b6 FE01      		movw r30,r28
- 157 00b8 E050      		subi r30,lo8(-(buttons))
- 158 00ba F040      		sbci r31,hi8(-(buttons))
- 106:buttonBoard.c **** 				usb_keyboard_press(buttons[i], 0);
- 159               		.loc 1 106 0
- 160 00bc 8081      		ld r24,Z
- 161 00be 60E0      		ldi r22,lo8(0)
- 162 00c0 0E94 0000 		call usb_keyboard_press
- 163               	.L9:
- 164 00c4 2196      		adiw r28,1
- 104:buttonBoard.c **** 		for (i=0; i<sizeof(pns); i++) {
- 165               		.loc 1 104 0
- 166 00c6 C430      		cpi r28,4
- 167 00c8 D105      		cpc r29,__zero_reg__
- 168 00ca 01F4      		brne .L10
- 169               	.LVL7:
- 170               	.LBB8:
- 171               	.LBB9:
- 172               		.loc 2 164 0
- 173 00cc EFE3      		 ldi r30,lo8(7999)
- 174 00ce FFE1      	    ldi r31,hi8(7999)
- 175 00d0 3197      	    1:sbiw r30,1
- 176 00d2 01F4      	    brne 1b
- 177 00d4 00C0      		rjmp .
- 178 00d6 0000      		nop
- 102:buttonBoard.c **** 		b = PINB;
- 179               		.loc 1 102 0
- 180 00d8 102F      		mov r17,r16
- 181 00da 00C0      		rjmp .L11
- 182               	.LBE9:
- 183               	.LBE8:
- 184               		.cfi_endproc
- 185               	.LFE7:
- 187               	.global	pnsActive
- 188               	.global	pnsActive
- 189               		.section .bss
- 192               	pnsActive:
- 193 0000 0000 0000 		.skip 8,0
- 193      0000 0000 
- 194               	.global	pns
- 195               		.data
- 198               	pns:
- 199 0000 04        		.byte	4
- 200 0001 08        		.byte	8
- 201 0002 40        		.byte	64
- 202 0003 80        		.byte	-128
- 203               	.global	buttons
- 206               	buttons:
- 207 0004 04        		.byte	4
- 208 0005 2C        		.byte	44
- 209 0006 28        		.byte	40
- 210 0007 16        		.byte	22
- 211               		.text
- 212               	.Letext0:
- 213               		.file 3 "/usr/local/CrossPack-AVR-20121207/lib/gcc/avr/4.6.2/../../../../avr/include/stdint.h"
+ 157               		.loc 1 51 0
+ 158 00ba FE01      		movw r30,r28
+ 159 00bc E050      		subi r30,lo8(-(buttons))
+ 160 00be F040      		sbci r31,hi8(-(buttons))
+ 110:buttonBoard.c ****                 keyboard_keys[0] = buttons[i];
+ 161               		.loc 1 110 0
+ 162 00c0 8081      		ld r24,Z
+ 163 00c2 8093 0000 		sts keyboard_keys,r24
+ 111:buttonBoard.c ****                 usb_keyboard_send();
+ 164               		.loc 1 111 0
+ 165 00c6 0E94 0000 		call usb_keyboard_send
+ 166               	.LVL7:
+ 167               	.LBB10:
+ 168               	.LBB11:
+ 169               		.loc 2 164 0
+ 170 00ca EFE3      		 ldi r30,lo8(-25537)
+ 171 00cc FCE9      	    ldi r31,hi8(-25537)
+ 172 00ce 3197      	    1:sbiw r30,1
+ 173 00d0 01F4      	    brne 1b
+ 174 00d2 00C0      		rjmp .
+ 175 00d4 0000      		nop
+ 176               	.LBE11:
+ 177               	.LBE10:
+ 112:buttonBoard.c ****                 _delay_ms(10);
+ 113:buttonBoard.c ****                 keyboard_keys[0] = 0;
+ 178               		.loc 1 113 0
+ 179 00d6 1092 0000 		sts keyboard_keys,__zero_reg__
+ 114:buttonBoard.c ****                 usb_keyboard_send();			}
+ 180               		.loc 1 114 0
+ 181 00da 0E94 0000 		call usb_keyboard_send
+ 182               	.LVL8:
+ 183               	.L9:
+ 184 00de 2196      		adiw r28,1
+ 106:buttonBoard.c **** 		for (i=0; i<sizeof(pns); i++) {
+ 185               		.loc 1 106 0
+ 186 00e0 C430      		cpi r28,4
+ 187 00e2 D105      		cpc r29,__zero_reg__
+ 188 00e4 01F4      		brne .L10
+ 189               	.LVL9:
+ 190               	.LBB12:
+ 191               	.LBB13:
+ 192               		.loc 2 164 0
+ 193 00e6 8FE3      		 ldi r24,lo8(7999)
+ 194 00e8 9FE1      	    ldi r25,hi8(7999)
+ 195 00ea 0197      	    1:sbiw r24,1
+ 196 00ec 01F4      	    brne 1b
+ 197 00ee 00C0      		rjmp .
+ 198 00f0 0000      		nop
+ 104:buttonBoard.c **** 		b = PINB;
+ 199               		.loc 1 104 0
+ 200 00f2 102F      		mov r17,r16
+ 201 00f4 00C0      		rjmp .L11
+ 202               	.LBE13:
+ 203               	.LBE12:
+ 204               		.cfi_endproc
+ 205               	.LFE7:
+ 207               	.global	pnsActive
+ 208               	.global	pnsActive
+ 209               		.section .bss
+ 212               	pnsActive:
+ 213 0000 0000 0000 		.skip 8,0
+ 213      0000 0000 
+ 214               	.global	pns
+ 215               		.data
+ 218               	pns:
+ 219 0000 04        		.byte	4
+ 220 0001 08        		.byte	8
+ 221 0002 40        		.byte	64
+ 222 0003 80        		.byte	-128
+ 223               	.global	buttons
+ 226               	buttons:
+ 227 0004 04        		.byte	4
+ 228 0005 2C        		.byte	44
+ 229 0006 28        		.byte	40
+ 230 0007 16        		.byte	22
+ 231               		.text
+ 232               	.Letext0:
+ 233               		.file 3 "/usr/local/CrossPack-AVR-20121207/lib/gcc/avr/4.6.2/../../../../avr/include/stdint.h"
+ 234               		.file 4 "usb_keyboard.h"
 DEFINED SYMBOLS
                             *ABS*:00000000 buttonBoard.c
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:2      *ABS*:0000003f __SREG__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:3      *ABS*:0000003e __SP_H__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:4      *ABS*:0000003d __SP_L__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:5      *ABS*:00000034 __CCP__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:6      *ABS*:00000000 __tmp_reg__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:7      *ABS*:00000001 __zero_reg__
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:16     .text.startup.main:00000000 main
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:198    .data:00000000 pns
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:192    .bss:00000000 pnsActive
-/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccvHRNFx.s:206    .data:00000004 buttons
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:2      *ABS*:0000003f __SREG__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:3      *ABS*:0000003e __SP_H__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:4      *ABS*:0000003d __SP_L__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:5      *ABS*:00000034 __CCP__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:6      *ABS*:00000000 __tmp_reg__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:7      *ABS*:00000001 __zero_reg__
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:16     .text.startup.main:00000000 main
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:218    .data:00000000 pns
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:212    .bss:00000000 pnsActive
+/var/folders/45/n5gfjjtn05j877spnpbnhqqw0000gn/T//ccfcTfA8.s:226    .data:00000004 buttons
 
 UNDEFINED SYMBOLS
 __do_copy_data
 __do_clear_bss
 usb_init
 usb_configured
-usb_keyboard_press
+keyboard_modifier_keys
+keyboard_keys
+usb_keyboard_send
